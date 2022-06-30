@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from './services/products.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productSvc: ProductsService) { }
 
   ngOnInit(): void {
+    this.productSvc.getProducts()
+    .pipe(tap(res => console.log(res)))
+    .subscribe();
   }
 
 }

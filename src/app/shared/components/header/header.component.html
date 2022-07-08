@@ -1,3 +1,6 @@
 <mat-toolbar>
-    <span>My Application</span>
+    <span>My Storage</span>
+    Quantity: {{quantity$ | async | json}}
+    Total: {{total$ | async | json}}
+    Cart: {{cart$ | async | json}}
 </mat-toolbar>
